@@ -1,0 +1,5 @@
+go mod init /name/
+
+go get github.com/gin-gonic/gin
+
+go get go.mongodb.org/mongo-driver/mongo
