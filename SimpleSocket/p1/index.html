@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            .new-class {
+                background-color: green;
+                padding: 10px;
+                color: wheat;
+                font-size: 20px;
+                text-align: center;
+            }
+            .content {
+                display: flex;
+                justify-content: center;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>webS</h1>
+
+        <div class="cointent">
+            <input type="text" id="input" />
+            <button onclick="send()">send</button>
+        </div>
+        <pre id="output"></pre>
+    </body>
+    <script>
+        let input = document.querySelector("#input");
+        let output = document.querySelector("#output");
+        const socket = new WebSocket("ws://localhost:3000/echo");
+
+        output.classList.add("new-class");
+
+        //check connected
+        socket.onopen = () => {
+            output.innerHTML += "CONNECTED\n";
+        };
+        //write message
+        socket.onmessage = (e) => {
+            output.innerHTML += "message: " + e.data + "\n";
+        };
+
+        //button
+        function send() {
+            socket.send(input.value);
+            input.value = "";
+        }
+    </script>
+</html>
