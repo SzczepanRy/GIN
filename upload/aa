@@ -1,0 +1,4 @@
+Have a REST endpoint that returns something based on a parameter you pass in. Like a numbered ID or a name.
+
+Then create something which takes a list of those IDs as input and tries 
+to get them back as fast as possible by utilizing goroutines.
