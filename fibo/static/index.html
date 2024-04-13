@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script src="http://localhost:3000/static/index.js" defer></script>
+    </head>
+    <body>
+        <h1>counting fibonachi on 1200% of cpu</h1>
+        <p>using</p>
+        <pre>
+            func fib(n int) int {
+                if n <= 1 {
+                    return n
+                }
+                return fib(n-1) + fib(n-2)
+            }
+        </pre>
+        <p class="connection"></p>
+        <ul class="numbers">
+            <li>unsorted numbers here:</li>
+        </ul>
+    </body>
+</html>
