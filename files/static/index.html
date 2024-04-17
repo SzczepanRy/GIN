@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            * {
+                box-sizing: border-box;
+                margin: 0;
+            }
+            body {
+                background-color: gray;
+                width: 100vw;
+                height: 100vh;
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+            }
+            .main {
+                display: flex;
+                gap: 30px;
+            }
+            .main * {
+                padding: 20px;
+            }
+            .form {
+                margin-top: 50px;
+            }
+            img {
+                height: 200px;
+            }
+        </style>
+        <script src="/index.js" defer></script>
+    </head>
+    <body>
+        <div class="main">
+            <form action="/upload" method="post" enctype="multipart/form-data">
+                <h2>upload form table one</h2>
+                <input type="hidden" value="table1" name="table" />
+                <input type="file" id="file" name="file" multiple />
+                <button type="submit">send</button>
+            </form>
+            <form action="/upload" method="post" enctype="multipart/form-data">
+                <h2>upload form table two</h2>
+                <input type="hidden" value="table2" name="table" />
+                <input type="file" id="file" name="file" multiple />
+                <button type="submit">send</button>
+            </form>
+            <form action="/upload" method="post" enctype="multipart/form-data">
+                <h2>upload form table three</h2>
+                <input type="hidden" value="table3" name="table" />
+                <input type="file" id="file" name="file" multiple />
+                <button type="submit">send</button>
+            </form>
+        </div>
+        <div class="form">
+            <input type="text" class="id" placeholder="id:" />
+            <button class="button" type="submit">find</button>
+        </div>
+        <div class="images"></div>
+    </body>
+</html>
