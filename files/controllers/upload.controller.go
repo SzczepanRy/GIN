@@ -10,14 +10,13 @@ import (
 	"os"
 
 	"github.com/gin-gonic/gin"
-	_ "github.com/lib/pq"
 )
 
 type Sqldb struct {
 	DB *sql.DB
 }
 
-func Upload(ctx *gin.Context) {
+func Upload(ctx *gin.Context, db *sql.DB) {
 
 	fmt.Println("Successfully connected!")
 
@@ -41,8 +40,8 @@ func Upload(ctx *gin.Context) {
 	// }
 	// bytesString = bytesString[1 : len(bytesString)-1]
 
-	db := ConnectToDB()
-	defer db.Close()
+	// db := ConnectToDB()
+	// defer db.Close()
 
 	sqldb := Sqldb{db}
 	records, err := sqldb.GetRecords(tableName)
@@ -50,6 +49,7 @@ func Upload(ctx *gin.Context) {
 		ctx.Error(err)
 	}
 
+	fmt.Println("log of records")
 	for _, record := range records {
 		fmt.Println(record.id)
 	}

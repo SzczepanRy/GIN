@@ -15,18 +15,16 @@ button.addEventListener("click", async (e) => {
 
     let data = await res.json();
     console.log(data);
-
-    if (typeof data.file == "string") {
-        let image = new Image();
-        image.src = "data:image/png;base64," + data.file;
-        images.append(image);
-    } else if (Array.isArray(data.file)) {
+    if (Array.isArray(data.file)) {
+        const div = document.createElement("div");
+        div.className = "row";
         let { file } = data;
         // console.log(typeof file);
         for (let fi of file) {
             let image = new Image();
             image.src = "data:image/png;base64," + fi;
-            images.append(image);
+            div.append(image);
         }
+        images.append(div);
     }
 });
